@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Laravel CMS using Blade Views
 
 This repository is a copy of the simple [PHP/Laravel CMS](https://github.com/codeadamca/php-cms-laravel) except the CMS views have been converted from vanilla PHP to Blade.
@@ -136,3 +137,6 @@ Full tutorial URL: https://codeadam.ca/learning/php-cms-laravel.html
 <a href="https://codeadam.ca">
 <img src="https://codeadam.ca/images/code-block.png" width="100">
 </a>
+=======
+# Assignment-3-Laravel---Backend
+>>>>>>> 11b35fbbef2f26bfad90dcdfaff3d578b91ada12
