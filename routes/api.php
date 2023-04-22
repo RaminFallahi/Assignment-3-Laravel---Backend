@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Entry;
+use App\Models\Education;
+use App\Models\Skill;
+use App\Models\Job;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,21 +26,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/types', function(){
-
-    $types = Type::orderBy('title')->get();
-    return $types;
-
+Route::get('/users', function(){
+    $users = User::orderBy('id')->get();
+    return $users;
 });
-Route::get('/types', function(){
 
+Route::get('/types', function(){
     $types = Type::orderBy('title')->get();
     return $types;
+});
 
+Route::get('/educations', function(){
+    $educations = Education::orderBy('level')->get();
+    return $educations;
+});
+
+Route::get('/skills', function(){
+    $skills = Skill::orderBy('title')->get();
+    return $skills;
+});
+
+Route::get('/jobs', function(){
+    $jobs = Job::orderBy('ended')->get();
+    return $jobs;
 });
 
 Route::get('/projects', function(){
-
     $projects = Project::orderBy('created_at')->get();
 
     foreach($projects as $key => $project)
@@ -49,9 +64,7 @@ Route::get('/projects', function(){
             $projects[$key]['image'] = env('APP_URL').'storage/'.$project['image'];
         }
     }
-
     return $projects;
-
 });
 
 Route::get('/projects/profile/{project?}', function(Project $project){
