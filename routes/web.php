@@ -9,6 +9,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\EntriesController;
 use App\Http\Controllers\EducationsController;
 use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\JobsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,15 +66,28 @@ Route::get('/console/types/delete/{type:id}', [TypesController::class, 'delete']
 Route::get('/console/entries/list', [EntriesController::class, 'list'])->middleware('auth');
 Route::get('/console/entries/add', [EntriesController::class, 'addForm'])->middleware('auth');
 Route::post('/console/entries/add', [EntriesController::class, 'add'])->middleware('auth');
-Route::get('/console/entries/edit/{entry:id}', [EntriesController::class, 'editForm'])->where('type', '[0-9]+')->middleware('auth');
-Route::post('/console/entries/edit/{entry:id}', [EntriesController::class, 'edit'])->where('type', '[0-9]+')->middleware('auth');
-Route::get('/console/entries/delete/{entry:id}', [EntriesController::class, 'delete'])->where('type', '[0-9]+')->middleware('auth');
+Route::get('/console/entries/edit/{entry:id}', [EntriesController::class, 'editForm'])->where('entry', '[0-9]+')->middleware('auth');
+Route::post('/console/entries/edit/{entry:id}', [EntriesController::class, 'edit'])->where('entry', '[0-9]+')->middleware('auth');
+Route::get('/console/entries/delete/{entry:id}', [EntriesController::class, 'delete'])->where('entry', '[0-9]+')->middleware('auth');
 
 Route::get('/console/educations/list', [EducationsController::class, 'list'])->middleware('auth');
+Route::get('/console/educations/add', [EducationsController::class, 'addForm'])->middleware('auth');
+Route::post('/console/educations/add', [EducationsController::class, 'add'])->middleware('auth');
+Route::get('/console/educations/edit/{education:id}', [EducationsController::class, 'editForm'])->where('education', '[0-9]+')->middleware('auth');
+Route::post('/console/educations/edit/{education:id}', [EducationsController::class, 'edit'])->where('education', '[0-9]+')->middleware('auth');
+Route::get('/console/educations/delete/{education:id}', [EducationsController::class, 'delete'])->where('education', '[0-9]+')->middleware('auth');
 
 Route::get('/console/skills/list', [SkillsController::class, 'list'])->middleware('auth');
 Route::get('/console/skills/add', [SkillsController::class, 'addForm'])->middleware('auth');
 Route::post('/console/skills/add', [SkillsController::class, 'add'])->middleware('auth');
-Route::get('/console/skills/edit/{skill:id}', [SkillsController::class, 'editForm'])->where('type', '[0-9]+')->middleware('auth');
-Route::post('/console/skills/edit/{skill:id}', [SkillsController::class, 'edit'])->where('type', '[0-9]+')->middleware('auth');
-Route::get('/console/skills/delete/{skill:id}', [SkillsController::class, 'delete'])->where('type', '[0-9]+')->middleware('auth');
+Route::get('/console/skills/edit/{skill:id}', [SkillsController::class, 'editForm'])->where('skill', '[0-9]+')->middleware('auth');
+Route::post('/console/skills/edit/{skill:id}', [SkillsController::class, 'edit'])->where('skill', '[0-9]+')->middleware('auth');
+Route::get('/console/skills/delete/{skill:id}', [SkillsController::class, 'delete'])->where('skill', '[0-9]+')->middleware('auth');
+
+Route::get('/console/jobs/list', [JobsController::class, 'list'])->middleware('auth');
+Route::get('/console/jobs/add', [JobsController::class, 'addForm'])->middleware('auth');
+Route::post('/console/jobs/add', [JobsController::class, 'add'])->middleware('auth');
+Route::get('/console/jobs/edit/{job:id}', [JobsController::class, 'editForm'])->where('job', '[0-9]+')->middleware('auth');
+Route::post('/console/jobs/edit/{job:id}', [JobsController::class, 'edit'])->where('job', '[0-9]+')->middleware('auth');
+Route::delete('/console/jobs/delete/{id}', [JobsController::class, 'delete'])->where('id', '[0-9]+')->middleware('auth');
+

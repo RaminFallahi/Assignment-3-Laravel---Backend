@@ -9,13 +9,12 @@
     <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
         <tr class="w3-red">
             <th>Title</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Level</th>
         </tr>
         @foreach ($skills as $skill)
             <tr>
                 <td>{{$skill->title}}</td>
+                <td>{{$skill->level}}</td>
                 <td><a href="/console/skills/edit/{{$skill->id}}">Edit</a></td>
                 <td><a href="/console/skills/delete/{{$skill->id}}">Delete</a></td>
             </tr>

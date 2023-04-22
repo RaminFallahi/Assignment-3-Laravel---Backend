@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('skill_project', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('skill_id');
-            $table->foreignId('project_id');
+            $table->string('title');
+            $table->string('company');
+            $table->string('location');
+            $table->timestamp('started');
+            $table->timestamp('ended')->nullable();
+
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('skill_project');
+        Schema::dropIfExists('jobs');
     }
 };
