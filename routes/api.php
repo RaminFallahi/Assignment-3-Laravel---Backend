@@ -28,6 +28,12 @@ Route::get('/types', function(){
     return $types;
 
 });
+Route::get('/types', function(){
+
+    $types = Type::orderBy('title')->get();
+    return $types;
+
+});
 
 Route::get('/projects', function(){
 

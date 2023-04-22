@@ -18,7 +18,7 @@ class SkillFactory extends Factory
     {
         return [
             'title' => $this->faker->randomElement(['HTML', 'JavaScript', 'PHP', 'CSS']),
-
+            'level' => $this->faker->randomElement(['Beginner', 'Intermediate', 'Advanced', 'Expert']),
         ];
     }
 }

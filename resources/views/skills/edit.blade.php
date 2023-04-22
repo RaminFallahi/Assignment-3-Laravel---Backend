@@ -19,6 +19,16 @@
                 <span class="w3-text-red">{{$errors->first('title')}}</span>
             @endif
         </div>
+
+        <div class="w3-margin-bottom">
+            <label for="level">Level:</label>
+            <input type="level" name="level" id="level" value="{{old('level', $skill->level)}}" required>
+
+            @if ($errors->first('level'))
+                <br>
+                <span class="w3-text-red">{{$errors->first('level')}}</span>
+            @endif
+        </div>
         
         <button type="submit" class="w3-button w3-green">Edit Skill</button>
 
